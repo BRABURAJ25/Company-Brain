@@ -1,0 +1,12 @@
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: falkordb
+    ports:
+      - "6379:6379"   # database port (Python connects here)
+      - "3000:3000"   # FalkorDB browser UI (open http://localhost:3000)
+    volumes:
+      - falkordb_data:/var/lib/falkordb/data   # keeps data after restart
+
+volumes:
+  falkordb_data:
